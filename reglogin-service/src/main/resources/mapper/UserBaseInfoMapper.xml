@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.loan.regloginservice.reglogin.dao.UserBaseInfoMapper">
+
+  	<!-- 全部字段 -->
+	<sql id="baseColumn">Id,UserName,CardId,CardOffice,UsefulLife,CardPicUrl1,CardPicUrl2,CardPicUrL3,ProvinceId,CityId,Address,LiveLong,IsMarry,ContactPerson1,Person1Relation,Person1Phone,ContactPerson2,Person2Relation,Person2Phone,ContactPerson3,Person3Relation,Person3Phone,Email,IndustryId,CompanyPost,CompanyName,CompanyProvinceId,CompanyCityId,CompanyAddress,WorkLong,IncomeAmountPerMonth,BankCardNo,BankId,BankDepositCode,BankReservedPhone,AutoLimit,CheckedLimit,AuthenticationStatus,LoanType,WorkFlowStatus,CustomerManager,PhoneNum,Salt,Password,PayPassword,PaySalt,Sex,NickName,RegisterTime,BankDepositProvinceId,BankDepositCityId,UserOrigin,UserHeadPicUrl,FuyouPhoneNum,isEnd,failCause,nextCityId,companyNextCityId,bankNextCityId,phoneServerPwd,cardIsEnd,contactIsEnd,workIsEnd,bankIsEnd,phoneIsEnd,openid</sql>
+	<!-- 通过手机号查询用户 -->
+	<select id="loadByPhoneNum" parameterType="java.lang.String" resultType="com.loan.regloginservice.reglogin.entity.UserBaseInfo">
+		select <include refid="baseColumn" /> from App_UserBaseInfo where PhoneNum=#{phoneNum}
+	</select>
+
+	<!-- 注册 -->
+	<insert id="insert" parameterType="com.loan.regloginservice.reglogin.entity.UserBaseInfo" keyColumn="Id" useGeneratedKeys="true" keyProperty="id">
+	insert into App_UserBaseInfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="userName != null" >
+        UserName,
+      </if>
+      <if test="phoneNum != null" >
+        PhoneNum,
+      </if>
+      <if test="salt != null" >
+        Salt,
+      </if>
+      <if test="password != null" >
+        Password,
+      </if>
+      <if test="payPassword != null" >
+        PayPassword,
+      </if>
+      <if test="paySalt != null" >
+        PaySalt,
+      </if>
+      <if test="sex != null" >
+        Sex,
+      </if>
+      <if test="nickName != null" >
+        NickName,
+      </if>
+      <if test="registerTime != null" >
+        RegisterTime,
+      </if>
+      <if test="cardId != null" >
+        CardId,
+      </if>
+      <if test="cardOffice != null" >
+        CardOffice,
+      </if>
+      <if test="usefulLife != null" >
+        UsefulLife,
+      </if>
+      <if test="cardPicUrl1 != null" >
+        CardPicUrl1,
+      </if>
+      <if test="cardPicUrl2 != null" >
+        CardPicUrl2,
+      </if>
+      <if test="cardPicUrl3 != null" >
+        CardPicUrl3,
+      </if>
+      <if test="provinceId != null" >
+        ProvinceId,
+      </if>
+      <if test="cityId != null" >
+        CityId,
+      </if>
+      <if test="address != null" >
+        Address,
+      </if>
+      <if test="liveLong != null" >
+        LiveLong,
+      </if>
+      <if test="isMarry != null" >
+        IsMarry,
+      </if>
+      <if test="contactPerson1 != null" >
+        ContactPerson1,
+      </if>
+      <if test="person1Relation != null" >
+        Person1Relation,
+      </if>
+      <if test="person1Phone != null" >
+        Person1Phone,
+      </if>
+      <if test="contactPerson2 != null" >
+        ContactPerson2,
+      </if>
+      <if test="person2Relation != null" >
+        Person2Relation,
+      </if>
+      <if test="person2Phone != null" >
+        Person2Phone,
+      </if>
+      <if test="contactPerson3 != null" >
+        ContactPerson3,
+      </if>
+      <if test="person3Relation != null" >
+        Person3Relation,
+      </if>
+      <if test="person3Phone != null" >
+        Person3Phone,
+      </if>
+      <if test="email != null" >
+        Email,
+      </if>
+      <if test="industryId != null" >
+        IndustryId,
+      </if>
+      <if test="companyPost != null" >
+        CompanyPost,
+      </if>
+      <if test="companyName != null" >
+        CompanyName,
+      </if>
+      <if test="companyProvinceId != null" >
+        CompanyProvinceId,
+      </if>
+      <if test="companyCityId != null" >
+        CompanyCityId,
+      </if>
+      <if test="companyAddress != null" >
+        CompanyAddress,
+      </if>
+      <if test="workLong != null" >
+        WorkLong,
+      </if>
+      <if test="incomeAmountPerMonth != null" >
+        IncomeAmountPerMonth,
+      </if>
+      <if test="bankCardNo != null" >
+        BankCardNo,
+      </if>
+      <if test="bankId != null" >
+        BankId,
+      </if>
+      <if test="bankDepositProvinceId != null" >
+        BankDepositProvinceId,
+      </if>
+      <if test="bankDepositCityId != null" >
+        BankDepositCityId,
+      </if>
+      <if test="bankDepositCode != null" >
+        BankDepositCode,
+      </if>
+      <if test="bankReservedPhone != null" >
+        BankReservedPhone,
+      </if>
+      <if test="autoLimit != null" >
+        AutoLimit,
+      </if>
+      <if test="checkedLimit != null" >
+        CheckedLimit,
+      </if>
+      <if test="authenticationStatus != null" >
+        AuthenticationStatus,
+      </if>
+      <if test="loanType != null" >
+        LoanType,
+      </if>
+      <if test="workFlowStatus != null" >
+        WorkFlowStatus,
+      </if>
+      <if test="customerManager != null" >
+        CustomerManager,
+      </if>
+      <if test="userOrigin != null" >
+        UserOrigin,
+      </if>
+      <if test="userHeadPicUrl != null" >
+        UserHeadPicUrl,
+      </if>
+      <if test="fuyouPhoneNum != null" >
+        FuyouPhoneNum,
+      </if>
+      <if test="openid != null" >
+        openid,
+      </if>
+      <if test="lastlogintime != null" >
+        LastLoginTime,
+      </if>
+      </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNum != null" >
+        #{phoneNum,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="payPassword != null" >
+        #{payPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="paySalt != null" >
+        #{paySalt,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null" >
+        #{registerTime},
+      </if>
+      <if test="cardId != null" >
+        #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="cardOffice != null" >
+        #{cardOffice,jdbcType=VARCHAR},
+      </if>
+      <if test="usefulLife != null" >
+        #{usefulLife,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPicUrl1 != null" >
+        #{cardPicUrl1,jdbcType=VARCHAR},
+      </if>
+       <if test="cardPicUrl2 != null" >
+        #{cardPicUrl2,jdbcType=VARCHAR},
+      </if>
+       <if test="cardPicUrl3 != null" >
+        #{cardPicUrl3,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+       #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+       #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+       #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="liveLong != null" >
+       #{liveLong,jdbcType=VARCHAR},
+      </if>
+      <if test="isMarry != null" >
+       #{isMarry,jdbcType=INTEGER},
+      </if>
+      <if test="contactPerson1 != null" >
+       #{contactPerson1,jdbcType=VARCHAR},
+      </if>
+      <if test="person1Relation != null" >
+       #{person1Relation,jdbcType=VARCHAR},
+      </if>
+      <if test="person1Phone != null" >
+       #{person1Phone,jdbcType=VARCHAR},
+      </if><if test="contactPerson2 != null" >
+       #{contactPerson2,jdbcType=VARCHAR},
+      </if>
+      <if test="person2Relation != null" >
+       #{person2Relation,jdbcType=VARCHAR},
+      </if>
+      <if test="person2Phone != null" >
+       #{person2Phone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPerson3 != null" >
+       #{contactPerson3,jdbcType=VARCHAR},
+      </if>
+      <if test="person3Relation != null" >
+       #{person3Relation,jdbcType=VARCHAR},
+      </if>
+      <if test="person3Phone != null" >
+       #{person3Phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+       #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="industryId != null" >
+       #{industryId,jdbcType=INTEGER},
+      </if>
+      <if test="companyPost != null" >
+       #{companyPost,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+       #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyProvinceId != null" >
+       #{companyProvinceId,jdbcType=INTEGER},
+      </if>
+      <if test="companyCityId != null" >
+       #{companyCityId,jdbcType=INTEGER},
+      </if>
+      <if test="companyAddress != null" >
+       #{companyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="workLong != null" >
+       #{workLong,jdbcType=VARCHAR},
+      </if>
+      <if test="incomeAmountPerMonth != null" >
+       #{incomeAmountPerMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCardNo != null" >
+       #{bankCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankDepositProvinceId != null" >
+       #{bankDepositProvinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null" >
+       #{bankId,jdbcType=INTEGER},
+      </if>
+      <if test="bankDepositCityId != null" >
+       #{bankDepositCityId,jdbcType=INTEGER},
+      </if>
+      <if test="bankDepositCode != null" >
+       #{bankDepositCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankReservedPhone != null" >
+       #{bankReservedPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="autoLimit != null" >
+       #{autoLimit,jdbcType=INTEGER},
+      </if>
+      <if test="checkedLimit != null" >
+       #{checkedLimit,jdbcType=INTEGER},
+      </if>
+      <if test="authenticationStatus != null" >
+       #{authenticationStatus,jdbcType=INTEGER},
+      </if>
+      <if test="loanType != null" >
+       #{loanType,jdbcType=INTEGER},
+      </if>
+      <if test="workFlowStatus != null" >
+       #{workFlowStatus,jdbcType=INTEGER},
+      </if>
+      <if test="customerManager != null" >
+       #{customerManager,jdbcType=VARCHAR},
+      </if>
+      <if test="userOrigin != null" >
+       #{userOrigin,jdbcType=INTEGER},
+      </if>
+      <if test="userHeadPicUrl != null" >
+       #{userHeadPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="fuyouPhoneNum != null" >
+       #{fuyouPhoneNum,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+       #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogintime != null" >
+       #{lastlogintime},
+      </if>
+      </trim>
+	</insert>
+
+</mapper>

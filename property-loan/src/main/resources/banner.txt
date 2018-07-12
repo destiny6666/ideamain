@@ -1,0 +1,4 @@
+${AnsiColor.BRIGHT_RED}
+欢迎使用springboot
+${AnsiColor.CYAN}
+springboot version:${spring-boot.version}

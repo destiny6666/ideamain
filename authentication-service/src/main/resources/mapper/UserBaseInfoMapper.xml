@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.loan.authenticationservice.dao.UserBaseInfoMapper">
+  
+	<!-- 通过id查询用户 -->
+	<select id="loadById" parameterType="java.lang.Integer" resultType="authentication.entity.UserBaseInfo">
+		select * from App_UserBaseInfo where Id=#{id}
+	</select>
+	<update id="update" parameterType="authentication.entity.UserBaseInfo">
+	update App_UserBaseInfo set UserName=#{userName},CardId=#{cardId},CardOffice=#{cardOffice},UsefulLife=#{usefulLife},CardPicUrl1=#{cardPicUrl1},CardPicUrl2=#{cardPicUrl2},CardPicUrl3=#{cardPicUrl3},
+	ProvinceId=#{provinceId},CityId=#{cityId},Address=#{address},LiveLong=#{liveLong},IsMarry=#{isMarry}, 
+	
+	ContactPerson1=#{contactPerson1},Person1Relation=#{person1Relation},Person1Phone=#{person1Phone},ContactPerson2=#{contactPerson2},Person2Relation=#{person2Relation},
+	Person2Phone=#{person2Phone},ContactPerson3=#{contactPerson3},Person3Relation=#{person3Relation},Person3Phone=#{person3Phone},Email=#{email},
+	
+	IndustryId=#{industryId},CompanyPost=#{companyPost},CompanyName=#{companyName},CompanyProvinceId=#{companyProvinceId},CompanyCityId=#{companyCityId},
+	CompanyAddress=#{companyAddress},WorkLong=#{workLong},IncomeAmountPerMonth=#{incomeAmountPerMonth},BankCardNo=#{bankCardNo},BankId=#{bankId},
+	
+	BankDepositProvinceId=#{bankDepositProvinceId},BankDepositCityId=#{bankDepositCityId},BankDepositCode=#{bankDepositCode},BankReservedPhone=#{bankReservedPhone},AutoLimit=#{autoLimit},CheckedLimit=#{checkedLimit},AuthenticationStatus=#{authenticationStatus},
+	LoanType=#{loanType},WorkFlowStatus=#{workFlowStatus},CustomerManager=#{customerManager},PhoneNum=#{phoneNum},Salt=#{salt},
+	
+	Password=#{password},PayPassword=#{payPassword},PaySalt=#{paySalt},Sex=#{sex},NickName=#{nickName},
+	RegisterTime=#{registerTime},UserOrigin=#{userOrigin},UserHeadPicUrl=#{userHeadPicUrl},FuyouPhoneNum=#{fuyouPhoneNum},isEnd=#{isEnd},
+	failCause=#{failCause},nextCityId=#{nextCityId},companyNextCityId=#{companyNextCityId},bankNextCityId=#{bankNextCityId},phoneServerPwd=#{phoneServerPwd},
+	cardIsEnd=#{cardIsEnd},contactIsEnd=#{contactIsEnd},workIsEnd=#{workIsEnd},bankIsEnd=#{bankIsEnd},phoneIsEnd=#{phoneIsEnd},cardStayTime=#{cardStayTime},
+	contactStayTime=#{contactStayTime},workStayTime=#{workStayTime},bankStayTime=#{bankStayTime},phoneStayTime=#{phoneStayTime}
+	 where Id=#{id}
+	</update>
+	<update id="updatePhoneReportUrl" parameterType="authentication.entity.UserBaseInfo">
+	update App_UserBaseInfo set phoneReportUrl=#{phoneReportUrl} where Id=#{id}
+	</update>
+</mapper>
