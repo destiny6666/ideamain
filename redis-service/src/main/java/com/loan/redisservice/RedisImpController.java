@@ -12,11 +12,11 @@ package com.loan.redisservice;
 
 
 import com.alibaba.fastjson.JSON;
-import com.loan.redis.RedisService;
 import com.loan.redisservice.config.IRedisClientKValue;
 import com.loan.redisservice.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
+import redis.RedisService;
 
 import java.util.ArrayList;
 import java.util.Date;

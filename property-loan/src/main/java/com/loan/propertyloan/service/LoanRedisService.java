@@ -10,8 +10,8 @@
  */
 package com.loan.propertyloan.service;
 
-import com.loan.redis.RedisService;
 import org.springframework.cloud.openfeign.FeignClient;
+import redis.RedisService;
 
 /**
  * 〈一句话功能简述〉<br> 

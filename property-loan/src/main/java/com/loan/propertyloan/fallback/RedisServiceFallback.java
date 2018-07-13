@@ -10,7 +10,7 @@
  */
 package com.loan.propertyloan.fallback;
 
-import com.loan.redis.RedisService;
+import redis.RedisService;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -21,7 +21,7 @@ import com.loan.redis.RedisService;
  * @since 1.0.0
  */
 //@Component
-public class RedisServiceFallback implements RedisService{
+public class RedisServiceFallback implements RedisService {
 
     @Override
     public String getRedis() {
